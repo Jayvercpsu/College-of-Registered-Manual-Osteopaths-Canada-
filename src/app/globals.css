@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/*
+ * CRMO Design System
+ * ------------------------------------------------------------------
+ * Design tokens derived from the approved project palette:
+ *   Deep navy  #16324F · Professional teal #247A78 · White #FFFFFF
+ *   Light bg   #F5F7FA · Text  #253247   · Muted   #64748B
+ */
+
+@theme {
+  /* Deep navy scale (anchor: #16324F at 800) */
+  --color-navy-50: #f0f5f9;
+  --color-navy-100: #dce7ee;
+  --color-navy-200: #b8cedd;
+  --color-navy-300: #8aafc7;
+  --color-navy-400: #5c8aaa;
+  --color-navy-500: #3e6e90;
+  --color-navy-600: #2c5576;
+  --color-navy-700: #1f4260;
+  --color-navy-800: #16324f;
+  --color-navy-900: #10253b;
+  --color-navy-950: #0a1828;
+
+  /* Professional teal scale (anchor: #247A78 at 600) */
+  --color-teal-50: #effaf9;
+  --color-teal-100: #d7f0ef;
+  --color-teal-200: #afe1df;
+  --color-teal-300: #7cc9c7;
+  --color-teal-400: #4aa8a6;
+  --color-teal-500: #2e8c8a;
+  --color-teal-600: #247a78;
+  --color-teal-700: #1e6563;
+  --color-teal-800: #184f4e;
+  --color-teal-900: #123b3a;
+  --color-teal-950: #0a2625;
+
+  /* Warm ochre accent — used sparingly for heritage accents */
+  --color-ochre-100: #f7eddd;
+  --color-ochre-200: #eedcb9;
+  --color-ochre-500: #c08a3e;
+  --color-ochre-600: #a97731;
+  --color-ochre-700: #8a5f26;
+
+  /* Semantic surfaces & text */
+  --color-canvas: #f5f7fa;
+  --color-ink: #253247;
+  --color-muted: #64748b;
+
+  /* Typography (wired to next/font variables in layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-source-serif), "Iowan Old Style",
+    "Palatino Linotype", Georgia, serif;
+
+  /* Restrained elevation */
+  --shadow-card: 0 1px 2px rgb(22 50 79 / 0.05), 0 4px 12px rgb(22 50 79 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(22 50 79 / 0.06), 0 12px 28px rgb(22 50 79 / 0.12);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-teal-200);
+  color: var(--color-navy-900);
+}
+
+/* Visible, consistent keyboard focus indicator */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2.5px solid var(--color-teal-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Serif display headings */
+:where(h1, h2, h3, .font-display) {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+  background: var(--color-navy-800);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus-visible {
+  left: 0;
+  outline-offset: 0;
+}
+
+/* Subtle card hover lift (disabled for reduced motion above) */
+.card-lift {
+  transition:
+    transform 220ms var(--ease-out-soft),
+    box-shadow 220ms var(--ease-out-soft),
+    border-color 220ms var(--ease-out-soft);
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Fine top rule accent used on cards */
+.rule-accent {
+  position: relative;
+}
+
+.rule-accent::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-teal-500),
+    var(--color-navy-500)
+  );
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-600);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: var(--color-ochre-500);
+}
+
+/* Long-form content typography (privacy, policies) */
+.prose-crmo {
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.prose-crmo h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-navy-800);
+  margin: 2.5rem 0 0.875rem;
+}
+
+.prose-crmo h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-navy-800);
+  margin: 1.75rem 0 0.625rem;
+}
+
+.prose-crmo p {
+  margin: 0.875rem 0;
+}
+
+.prose-crmo ul {
+  margin: 0.875rem 0;
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+
+.prose-crmo li {
+  margin: 0.35rem 0;
+}
+
+.prose-crmo a {
+  color: var(--color-teal-700);
+  font-weight: 550;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-crmo a:hover {
+  color: var(--color-teal-800);
+}
