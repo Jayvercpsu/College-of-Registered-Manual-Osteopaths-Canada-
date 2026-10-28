@@ -5,24 +5,25 @@ import { MEMBERSHIP_BENEFITS } from "@/data/benefits";
 
 export function Benefits() {
   return (
-    <section aria-labelledby="benefits-heading" className="bg-canvas py-16 lg:py-24">
+    <section aria-labelledby="benefits-heading" className="bg-canvas py-16 lg:py-24 reveal-on-scroll">
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Membership"
             title="What CRMO membership offers"
             description="Registration with CRMO connects qualified manual osteopaths to a protected professional title, insurer recognition and structured professional standards."
+            className="animate-fade-in-up"
           />
-          <LinkButton href="/membership" variant="secondary" className="shrink-0">
+          <LinkButton href="/membership" variant="secondary" className="shrink-0 animate-fade-in-up delay-1 btn-hover-lift btn-secondary">
             Explore Membership
           </LinkButton>
         </div>
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger" role="list">
           {MEMBERSHIP_BENEFITS.map((benefit) => (
             <li
               key={benefit.title}
-              className="card-lift rounded-2xl border border-navy-100 bg-white p-6 shadow-card"
+              className="card-hover-elevate rounded-2xl border border-navy-100 bg-white p-6 shadow-card"
             >
               <span
                 aria-hidden

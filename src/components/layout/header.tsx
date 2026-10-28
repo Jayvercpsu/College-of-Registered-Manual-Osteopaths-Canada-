@@ -131,7 +131,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       {/* Utility bar — verified contact details */}
-      <div className="hidden bg-navy-900 text-navy-100 lg:block">
+      <div className="hidden bg-navy-900 text-navy-100 lg:block announcement-bar-enter">
         <div className="mx-auto flex h-9 w-full max-w-6xl items-center justify-between px-5 text-xs sm:px-8">
           <p className="font-medium tracking-wide">
             A national nonprofit Indigenous organization — registering manual
@@ -159,7 +159,7 @@ export function Header() {
       {/* Main bar */}
       <div
         className={cn(
-          "border-b border-navy-100/80 bg-white/95 backdrop-blur-md transition-shadow",
+          "border-b border-navy-100/80 bg-white/95 backdrop-blur-md transition-shadow header-enter",
           scrolled && "shadow-[0_8px_30px_-16px_rgb(22_50_79/0.35)]",
         )}
       >
@@ -182,20 +182,13 @@ export function Header() {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={handleNavClick}
                 className={cn(
-                  "rounded-md px-2.5 py-2 text-sm font-semibold tracking-tight whitespace-nowrap transition-colors",
+                  "rounded-md px-2.5 py-2 text-sm font-semibold tracking-tight whitespace-nowrap transition-colors nav-link-underline",
                   isActive(item.href)
                     ? "text-teal-700"
                     : "text-ink hover:bg-navy-50 hover:text-navy-900",
                 )}
               >
                 {item.label}
-                <span
-                  aria-hidden
-                  className={cn(
-                    "mx-auto mt-0.5 block h-0.5 rounded-full bg-teal-600 transition-all duration-300",
-                    isActive(item.href) ? "w-4/5" : "w-0",
-                  )}
-                />
               </Link>
             ))}
           </nav>
@@ -204,7 +197,7 @@ export function Header() {
             <Link
               href="/membership"
               onClick={handleNavClick}
-              className="hidden h-11 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-[0.925rem] font-semibold tracking-tight whitespace-nowrap text-white shadow-[0_1px_2px_rgb(22_50_79/0.16),inset_0_1px_0_rgb(255_255_255/0.12)] transition-colors select-none hover:bg-teal-700 active:bg-teal-800 sm:inline-flex"
+              className="hidden h-11 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-[0.925rem] font-semibold tracking-tight whitespace-nowrap text-white shadow-[0_1px_2px_rgb(22_50_79/0.16),inset_0_1px_0_rgb(255_255_255/0.12)] transition-colors select-none hover:bg-teal-700 active:bg-teal-800 btn-hover-lift btn-primary sm:inline-flex"
             >
               Become a Member
               <ArrowRight className="h-4 w-4" strokeWidth={2.4} aria-hidden />
@@ -263,7 +256,7 @@ export function Header() {
               <Link
                 href="/membership"
                 onClick={handleNavClick}
-                className="flex h-12 items-center justify-center gap-2 rounded-lg bg-teal-600 text-base font-semibold text-white hover:bg-teal-700"
+                className="flex h-12 items-center justify-center gap-2 rounded-lg bg-teal-600 text-base font-semibold text-white hover:bg-teal-700 btn-hover-lift btn-primary"
               >
                 Become a Member
                 <ArrowRight className="h-4 w-4" strokeWidth={2.4} aria-hidden />

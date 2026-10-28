@@ -14,7 +14,7 @@ export function PractitionerCard({
   practitioner: Practitioner;
 }) {
   return (
-    <article className="card-lift flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-card">
+    <article className="card-hover-elevate flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-card">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-4">
           <InitialsAvatar name={p.name} />

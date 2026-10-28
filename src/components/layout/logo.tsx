@@ -10,11 +10,21 @@ export function LogoMark({
   className,
   decorative = true,
   priority = false,
+  size = "default",
 }: {
   className?: string;
   decorative?: boolean;
   priority?: boolean;
+  size?: "sm" | "default" | "lg" | "header" | "footer";
 }) {
+  const sizeClasses = {
+    sm: "h-10 w-10",
+    default: "h-12 w-12",
+    lg: "h-14 w-14",
+    header: "h-16 w-16 sm:h-14 sm:w-14", // 64px desktop, 56px mobile
+    footer: "h-12 w-12",
+  };
+
   return (
     <Image
       src="/images/crmo-logo.jpg"
@@ -23,17 +33,22 @@ export function LogoMark({
       height={975}
       sizes="64px"
       priority={priority}
-      className={cn("h-10 w-10 rounded-full object-contain", className)}
+      className={cn(
+        "rounded-full object-contain transition-transform duration-300",
+        sizeClasses[size],
+        className
+      )}
     />
   );
 }
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, size = "header" }: { className?: string; size?: "sm" | "default" | "lg" | "header" | "footer" }) {
   return (
     <span className={cn("group inline-flex items-center", className)}>
       <LogoMark
         priority
-        className="h-14 w-14 transition-transform duration-300 group-hover:scale-[1.04]"
+        size={size}
+        className="group-hover:scale-[1.03]"
       />
     </span>
   );

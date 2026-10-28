@@ -16,7 +16,7 @@ export async function DirectoryPreview() {
   return (
     <section
       aria-labelledby="directory-preview-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-white py-16 lg:py-24 reveal-on-scroll"
     >
       <Container>
         <SectionHeading
@@ -24,6 +24,7 @@ export async function DirectoryPreview() {
           eyebrow="Public Directory"
           title="Find a registered manual osteopath near you"
           description="Search the public CRMO directory by name or location. Directory entries shown during this preview are demonstration records."
+          className="animate-fade-in-up"
         />
 
         {/* Search entry — progressive enhancement: a plain GET form, no JS required */}
@@ -32,7 +33,7 @@ export async function DirectoryPreview() {
           method="get"
           role="search"
           aria-label="Search the practitioner directory"
-          className="mx-auto mt-10 grid max-w-3xl gap-3 rounded-2xl border border-navy-100 bg-white p-3 shadow-card sm:grid-cols-[1fr_1fr_auto]"
+          className="mx-auto mt-10 grid max-w-3xl gap-3 rounded-2xl border border-navy-100 bg-white p-3 shadow-card sm:grid-cols-[1fr_1fr_auto] animate-fade-in-up delay-1"
         >
           <label className="flex items-center gap-2.5 rounded-xl border border-navy-100 bg-canvas px-4">
             <Search className="h-4.5 w-4.5 shrink-0 text-muted" aria-hidden />
@@ -56,14 +57,14 @@ export async function DirectoryPreview() {
           </label>
           <button
             type="submit"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-teal-700"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-teal-700 btn-hover-lift btn-primary"
           >
             <Search className="h-4 w-4" strokeWidth={2.4} aria-hidden />
             Search
           </button>
         </form>
 
-        <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 reveal-stagger" role="list">
           {featured.map((p) => (
             <li key={p.id}>
               <PractitionerCard practitioner={p} />
@@ -71,7 +72,7 @@ export async function DirectoryPreview() {
           ))}
         </ul>
 
-        <div className="mt-10 text-center">
+        <div className="mt-10 text-center animate-fade-in-up delay-3">
           <Link
             href="/directory"
             className="inline-flex items-center gap-2 rounded-md font-semibold text-teal-700 transition-colors hover:text-teal-800"

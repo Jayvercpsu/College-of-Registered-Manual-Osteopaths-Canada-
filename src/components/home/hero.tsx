@@ -26,18 +26,20 @@ export function Hero() {
       <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-5 pt-14 pb-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:pt-24 lg:pb-28">
         {/* Copy */}
         <div>
-          <p className="eyebrow">The College of Registered Manual Osteopaths</p>
+          <p className="eyebrow animate-fade-in-up">
+            The College of Registered Manual Osteopaths
+          </p>
           <h1
             id="hero-heading"
-            className="mt-4 font-display text-4xl leading-[1.12] font-semibold text-balance text-navy-900 sm:text-5xl lg:text-[3.4rem]"
+            className="mt-4 font-display text-4xl leading-[1.12] font-semibold text-balance text-navy-900 sm:text-5xl lg:text-[3.4rem] animate-fade-in-up delay-1"
           >
             A national register for{" "}
-            <span className="relative whitespace-nowrap text-teal-700">
+            <span className="relative whitespace-nowrap text-teal-700 animate-slide-in-right delay-2">
               professional
               <svg
                 aria-hidden
                 viewBox="0 0 220 10"
-                className="absolute -bottom-1 left-0 w-full text-ochre-500"
+                className="absolute -bottom-1 left-0 w-full text-ochre-500 animate-underline-expand delay-3"
                 preserveAspectRatio="none"
               >
                 <path
@@ -51,25 +53,25 @@ export function Hero() {
             </span>{" "}
             manual osteopathy in Canada
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted animate-fade-in-up delay-3">
             {SITE.legalName} is a national nonprofit Indigenous organization
             registering qualified manual osteopaths — protecting the right of
             the public to safe, ethical manual osteopathic care.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <LinkButton href="/directory" size="lg">
+            <LinkButton href="/directory" size="lg" className="animate-fade-in-up delay-4 btn-hover-lift btn-primary">
               <Search className="h-4.5 w-4.5" strokeWidth={2.4} aria-hidden />
               Find a Registered Osteopath
             </LinkButton>
-            <LinkButton href="/membership" variant="outline" size="lg">
+            <LinkButton href="/membership" variant="outline" size="lg" className="animate-fade-in-up delay-5 btn-hover-lift btn-outline">
               Become a Member
               <ArrowRight className="h-4 w-4" strokeWidth={2.4} aria-hidden />
             </LinkButton>
           </div>
 
           {/* Verified trust signals */}
-          <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-navy-800">
+          <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-navy-800 reveal-stagger" role="list">
             <li className="flex items-center gap-2">
               <BadgeCheck className="h-4.5 w-4.5 text-teal-600" strokeWidth={2.2} aria-hidden />
               Protected RMO professional title
@@ -89,9 +91,9 @@ export function Hero() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute -top-5 -right-5 hidden h-full w-full rounded-3xl border-2 border-teal-200 lg:block"
+            className="absolute -top-5 -right-5 hidden h-full w-full rounded-3xl border-2 border-teal-200 lg:block hero-border-enter"
           />
-          <div className="relative overflow-hidden rounded-3xl shadow-lift">
+          <div className="relative overflow-hidden rounded-3xl shadow-lift animate-scale-in delay-2">
             <Image
               src="/images/hero-treatment.jpeg"
               alt="A manual osteopath assessing a patient's neck and shoulder during a clinical treatment"
@@ -99,12 +101,12 @@ export function Hero() {
               height={1280}
               priority
               sizes="(min-width: 1024px) 44rem, 100vw"
-              className="aspect-[3/2] w-full object-cover"
+              className="aspect-[3/2] w-full object-cover image-hover-scale"
             />
           </div>
 
           {/* Floating verification card — sample UI pattern */}
-          <figure className="absolute -bottom-6 left-5 flex items-center gap-3 rounded-2xl border border-navy-100 bg-white/95 px-4 py-3 shadow-lift backdrop-blur sm:left-8">
+          <figure className="absolute -bottom-6 left-5 flex items-center gap-3 rounded-2xl border border-navy-100 bg-white/95 px-4 py-3 shadow-lift backdrop-blur sm:left-8 hero-badge-enter">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-50 text-teal-700">
               <BadgeCheck className="h-5 w-5" strokeWidth={2.2} aria-hidden />
             </span>

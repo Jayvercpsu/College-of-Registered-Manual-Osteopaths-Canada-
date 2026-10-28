@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { SkipLink } from "@/components/layout/skip-link";
+import { GlobalScrollReveal } from "@/components/layout/global-scroll-reveal";
 import { SITE } from "@/data/site";
 import "./globals.css";
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-dvh flex-col bg-canvas text-ink antialiased">
         <SkipLink />
         <Header />
+        <GlobalScrollReveal />
         <main id="main-content" className="flex-1">
           {children}
         </main>

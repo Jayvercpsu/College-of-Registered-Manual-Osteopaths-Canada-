@@ -13,14 +13,14 @@ export function CtaBanner({
   description?: string;
 }) {
   return (
-    <section aria-labelledby="cta-heading" className="bg-canvas pb-16 lg:pb-24">
+    <section aria-labelledby="cta-heading" className="bg-canvas pb-16 lg:pb-24 reveal-on-scroll">
       <Container>
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-700 via-teal-800 to-navy-900 px-6 py-14 text-center sm:px-12 lg:px-20">
           {/* Decorative arcs echoing the mark */}
           <svg
             aria-hidden
             viewBox="0 0 400 400"
-            className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 opacity-[0.12]"
+            className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 opacity-[0.12] animate-fade-in delay-3"
           >
             <circle cx="200" cy="200" r="180" fill="none" stroke="#fff" strokeWidth="1.5" />
             <circle cx="200" cy="200" r="140" fill="none" stroke="#fff" strokeWidth="1.5" />
@@ -29,7 +29,7 @@ export function CtaBanner({
           <svg
             aria-hidden
             viewBox="0 0 400 400"
-            className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 opacity-[0.12]"
+            className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 opacity-[0.12] animate-fade-in delay-4"
           >
             <circle cx="200" cy="200" r="180" fill="none" stroke="#fff" strokeWidth="1.5" />
             <circle cx="200" cy="200" r="140" fill="none" stroke="#fff" strokeWidth="1.5" />
@@ -38,22 +38,22 @@ export function CtaBanner({
 
           <h2
             id="cta-heading"
-            className="relative mx-auto max-w-2xl font-display text-3xl font-semibold text-balance text-white sm:text-4xl"
+            className="relative mx-auto max-w-2xl font-display text-3xl font-semibold text-balance text-white sm:text-4xl animate-fade-in-up"
           >
             {title}
           </h2>
-          <p className="relative mx-auto mt-4 max-w-xl leading-relaxed text-teal-100">
+          <p className="relative mx-auto mt-4 max-w-xl leading-relaxed text-teal-100 animate-fade-in-up delay-1">
             {description}
           </p>
-          <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <LinkButton href="/directory" variant="inverse" size="lg">
+          <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row animate-fade-in-up delay-2">
+            <LinkButton href="/directory" variant="inverse" size="lg" className="btn-hover-lift">
               <Search className="h-4.5 w-4.5" strokeWidth={2.4} aria-hidden />
               Find an Osteopath
             </LinkButton>
             <LinkButton
               href="/membership"
               size="lg"
-              className="border border-white/40 bg-white/10 text-white hover:bg-white/20"
+              className="border border-white/40 bg-white/10 text-white hover:bg-white/20 btn-hover-lift"
             >
               Become a Member
               <ArrowRight className="h-4 w-4" strokeWidth={2.4} aria-hidden />
